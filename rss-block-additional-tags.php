@@ -70,7 +70,7 @@ function add_custom_fields_to_rss2_item() {
 function rss_block_read_images_from_feed( $context, $block_name, $item ) {
 
 	if ( 'ubc/ctlt-rss' !== $block_name ) {
-		return;
+		return $context;
 	}
 
 	$images = $item->get_item_tags( 'https://cms.ubc.ca/', 'image' );
@@ -109,7 +109,7 @@ function rss_block_read_images_from_feed( $context, $block_name, $item ) {
 function rss_block_read_cf_from_feed( $context, $block_name, $item ) {
 
 	if ( 'ubc/ctlt-rss' !== $block_name ) {
-		return;
+		return $context;
 	}
 
 	$cfs = $item->get_item_tags( 'https://cms.ubc.ca/', 'cf' );
@@ -162,26 +162,3 @@ function get_site_meta_keys() {
 
 	wp_send_json_success( $keys );
 }//end get_site_meta_keys()
-
-/**
- * Add additional innerblocks supports to RSS block.
- *
- * @param array  $supported_innerblocks The list of supported innerblocks before filtering.
- * @param string $block_name The name of the block for verification.
- */
-function rss_block_add_innerblocks_support( $supported_innerblocks, $block_name ) {
-
-	if ( 'ubc/ctlt-rss' !== $block_name ) {
-		return $supported_innerblocks;
-	}
-
-	$more_innerblocks = array(
-		'ubc/api-image',
-		'ubc/api-custom-field',
-	);
-
-	$supported_innerblocks = array_merge( $supported_innerblocks, $more_innerblocks );
-	$supported_innerblocks = array_unique( $supported_innerblocks );
-
-	return $supported_innerblocks;
-}//end rss_block_add_innerblocks_support()
