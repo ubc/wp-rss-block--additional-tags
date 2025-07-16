@@ -94,8 +94,6 @@ function rss_block_read_images_from_feed( $context, $block_name, $item ) {
 		}
 	}
 
-	error_log( print_r( $context, true ) );
-
 	return $context;
 }//end rss_block_read_images_from_feed()
 
@@ -127,9 +125,9 @@ function rss_block_read_cf_from_feed( $context, $block_name, $item ) {
 		);
 
 		if ( array_key_exists( 'ctlt/api-rss-custom-field', $context ) ) {
-			$context['ctlt/api-rss-custom-field']['custom_fields'] = array_merge( $context['ctlt/api-rss-custom-field']['custom_fields'], $cfs );
+			$context['ctlt/api-rss-custom-field']['custom'] = array_merge( $context['ctlt/api-rss-custom-field']['custom'], $cfs );
 		} else {
-			$context['ctlt/api-rss-custom-field']['custom_fields'] = $cfs;
+			$context['ctlt/api-rss-custom-field']['custom'] = $cfs;
 		}
 	}
 
