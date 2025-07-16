@@ -19,7 +19,6 @@ add_action( 'rss2_item', __NAMESPACE__ . '\\add_feature_image_to_rss2_item' );
 add_action( 'rss2_item', __NAMESPACE__ . '\\add_custom_fields_to_rss2_item' );
 add_filter( 'wpapi_filter_item_context', __NAMESPACE__ . '\\rss_block_read_images_from_feed', 10, 3 );
 add_filter( 'wpapi_filter_item_context', __NAMESPACE__ . '\\rss_block_read_cf_from_feed', 10, 3 );
-add_filter( 'wpapi_filter_supported_inner_blocks', __NAMESPACE__ . '\\rss_block_add_innerblocks_support', 10, 2 );
 
 /*-----------------------------------------------------------------------------------*/
 
