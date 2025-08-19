@@ -3,3 +3,9 @@ Install this plugin on your website will:
 
 1. Add feature image and custom fields to WP Rest API.
 2. Allows WP RSS block to pull feature image and custom fields from WP Rest API.
+
+## Changelog
+
+### 1.0.1 - 2024-01-01
+- **Fixed**: Bug: Custom field output in RSS feed include unexpected JSON response.
+

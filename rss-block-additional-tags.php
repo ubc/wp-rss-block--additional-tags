@@ -3,7 +3,7 @@
  *
  * Plugin Name:       WP RSS Block Addon - Additional Tags
  * Description:       Add additional tags WP Rest API and feed to the RSS block.
- * Version:           1.0
+ * Version:           1.0.1
  * Author:            Kelvin Xu
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -159,5 +159,5 @@ function get_site_meta_keys() {
 
 	set_transient( 'wp_metadata_get_keys', $keys, HOUR_IN_SECONDS );
 
-	wp_send_json_success( $keys );
+	return $keys;
 }//end get_site_meta_keys()
